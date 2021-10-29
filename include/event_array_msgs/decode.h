@@ -1,0 +1,53 @@
+// -*-c++-*--------------------------------------------------------------------
+// Copyright 2021 Bernd Pfrommer <bernd.pfrommer@gmail.com>
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+#ifndef EVENT_ARRAY_MSGS__DECODE_H_
+#define EVENT_ARRAY_MSGS__DECODE_H_
+
+#include <stdint.h>
+
+namespace event_array_msgs
+{
+  //
+  // ------------ helper functions to decode the standard "mono" message --------
+  //
+  namespace mono {
+    //
+    // decode just x and y coordinates of event, return polarity
+    //
+    static inline bool decode_x_y_p(const uint8_t *packed_u8, uint16_t * x, uint16_t * y)
+    {
+      const uint64_t &packed = *reinterpret_cast<const uint64_t*>(packed_u8);
+      *y = (uint16_t)((packed >> 48) & 0x7FFFULL);
+      *x = (uint16_t)((packed >> 32) & 0xFFFFULL);
+      return ((bool)(packed & ~0x7FFFFFFFFFFFFFFFULL));
+    }
+    
+    //
+    // decode time, x and y coordinates of event, return polarity
+    //
+    static inline bool decode_t_x_y_p(
+      const uint8_t *packed_u8, uint64_t time_base, uint64_t * t, uint16_t * x, uint16_t * y)
+    {
+      const uint64_t &packed = *reinterpret_cast<const uint64_t*>(packed_u8);
+      *y = (uint16_t)((packed >> 48) & 0x7FFFULL);
+      *x = (uint16_t)((packed >> 32) & 0xFFFFULL);
+      const uint32_t dt = (uint32_t)(packed & 0xFFFFFFFFULL);
+      *t = time_base + dt;
+      return ((bool)(packed & ~0x7FFFFFFFFFFFFFFFULL));
+    }
+  } // end of namespace mono
+}
+#endif // EVENT_ARRAY_MSGS__DECODE_H_
