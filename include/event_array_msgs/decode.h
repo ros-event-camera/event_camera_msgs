@@ -30,8 +30,8 @@ namespace event_array_msgs
     static inline bool decode_x_y_p(const uint8_t *packed_u8, uint16_t * x, uint16_t * y)
     {
       const uint64_t &packed = *reinterpret_cast<const uint64_t*>(packed_u8);
-      *y = (uint16_t)((packed >> 48) & 0x7FFFULL);
-      *x = (uint16_t)((packed >> 32) & 0xFFFFULL);
+      *y = static_cast<uint16_t>((packed >> 48) & 0x7FFFULL);
+      *x = static_cast<uint16_t>((packed >> 32) & 0xFFFFULL);
       return ((bool)(packed & ~0x7FFFFFFFFFFFFFFFULL));
     }
     
@@ -42,11 +42,11 @@ namespace event_array_msgs
       const uint8_t *packed_u8, uint64_t time_base, uint64_t * t, uint16_t * x, uint16_t * y)
     {
       const uint64_t &packed = *reinterpret_cast<const uint64_t*>(packed_u8);
-      *y = (uint16_t)((packed >> 48) & 0x7FFFULL);
-      *x = (uint16_t)((packed >> 32) & 0xFFFFULL);
-      const uint32_t dt = (uint32_t)(packed & 0xFFFFFFFFULL);
+      *y = static_cast<uint16_t>((packed >> 48) & 0x7FFFULL);
+      *x = static_cast<uint16_t>((packed >> 32) & 0xFFFFULL);
+      const uint32_t dt = static_cast<uint32_t>(packed & 0xFFFFFFFFULL);
       *t = time_base + dt;
-      return ((bool)(packed & ~0x7FFFFFFFFFFFFFFFULL));
+      return (static_cast<bool>(packed & ~0x7FFFFFFFFFFFFFFFULL));
     }
   } // end of namespace mono
 }

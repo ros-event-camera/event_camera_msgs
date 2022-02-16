@@ -25,7 +25,8 @@ namespace event_array_msgs
   //
   namespace mono {
     static inline void encode(uint64_t *packed, bool p, uint16_t x, uint16_t y, uint32_t dt) {
-      *packed = (uint64_t)p << 63 | (uint64_t)y << 48 | (uint64_t)x << 32 | (uint64_t)dt;
+      *packed = static_cast<uint64_t>(p) << 63 | static_cast<uint64_t>(y) << 48 |
+        static_cast<uint64_t>(x) << 32 | static_cast<uint64_t>(dt);
     }
   } // end of namespace mono
 }
