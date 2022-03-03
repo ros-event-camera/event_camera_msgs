@@ -42,6 +42,7 @@ def get_rosbag_options(path, serialization_format='cdr'):
 
 
 def read_bag(args):
+    debug_print = True
     bag_path = str(args.bag)
     storage_options, converter_options = get_rosbag_options(bag_path)
 
@@ -80,8 +81,9 @@ def read_bag(args):
             t0 = Time.from_msg(msg.header.stamp).nanoseconds
         t_adj = t if args.use_sensor_time else (t - t0)
         a = np.stack((t_adj * 1e-9, x, y, p), axis=-1)
-        # print(a)
-        print(t_adj * 1e-9)
+        if debug_print:
+            print('---- message:')
+            print(a)
         num_events += t.shape[0]
         num_msgs += 1
     
