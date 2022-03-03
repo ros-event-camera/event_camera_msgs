@@ -21,6 +21,8 @@ serialization and deserialization.
 	message ``time_base`` field.
 	To recover the best estimate ROS sensor time stamp, add ``dt`` to the
 	header stamp.
+	For encoding and decoding see the examples in the ``python`` directory and the header files
+	in ``include/event_array_msgs``.
 
 ## License
 This package is released under the [Apache-2 license](LICENSE).

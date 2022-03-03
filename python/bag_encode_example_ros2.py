@@ -17,7 +17,6 @@
 #
 """
 example python encoding to rosbag
-This example is unnecessarily long: much of the code is for 
 Some of the rosbag writing code was taken from:
 https://docs.ros.org/en/galactic/Tutorials/Ros2bag/Recording-A-Bag-From-Your-Own-Node-Python.html
 """
