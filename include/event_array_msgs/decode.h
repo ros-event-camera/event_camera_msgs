@@ -49,5 +49,31 @@ namespace event_array_msgs
       return ((bool)(packed & ~0x7FFFFFFFFFFFFFFFULL));
     }
   } // end of namespace mono
+
+  //
+  // ------------ helper functions to decode the standard "special" message --------
+  //
+  namespace special {
+    //
+    // decode just return polarity
+    //
+    static inline bool decode_p(const uint8_t *packed_u8)
+    {
+      const uint64_t &packed = *reinterpret_cast<const uint64_t*>(packed_u8);
+      return ((bool)(packed & ~0x7FFFFFFFFFFFFFFFULL));
+    }
+    
+    //
+    // decode time of event, return polarity
+    //
+    static inline bool decode_t_p(
+      const uint8_t *packed_u8, uint64_t time_base, uint64_t * t)
+    {
+      const uint64_t &packed = *reinterpret_cast<const uint64_t*>(packed_u8);
+      const uint32_t dt = (uint32_t)(packed & 0xFFFFFFFFULL);
+      *t = time_base + dt;
+      return ((bool)(packed & ~0x7FFFFFFFFFFFFFFFULL));
+    }
+  } // end of namespace mono
 }
 #endif // EVENT_ARRAY_MSGS__DECODE_H_
