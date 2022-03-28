@@ -33,10 +33,10 @@ namespace event_array_msgs
   //
   // ------------ helper function to encode the standard "special" message --------
   //
-  namespace special {
+  namespace trigger {
     static inline void encode(uint64_t *packed, bool p, uint32_t dt) {
       *packed = (uint64_t)p << 63 | (uint64_t)0 | (uint64_t)dt;
     }
-  } // end of namespace mono
+  } // end of namespace trigger
 }
 #endif // EVENT_ARRAY_MSGS__ENCODE_H_

@@ -51,9 +51,9 @@ namespace event_array_msgs
   } // end of namespace mono
 
   //
-  // ------------ helper functions to decode the standard "special" message --------
+  // ------------ helper functions to decode the standard "trigger" message --------
   //
-  namespace special {
+  namespace trigger {
     //
     // decode just return polarity
     //

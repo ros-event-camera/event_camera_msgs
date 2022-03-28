@@ -21,8 +21,23 @@ serialization and deserialization.
 	message ``time_base`` field.
 	To recover the best estimate ROS sensor time stamp, add ``dt`` to the
 	header stamp.
-	For encoding and decoding see the examples in the ``python`` directory and the header files
-	in ``include/event_array_msgs``.
+
+- ``trigger``: external trigger messages from e.g. the
+    Prophesee Metavision cameras.
+
+    | bits  | interpretation                         |
+    |-------|----------------------------------------|
+    | 63    | polarity: ON event = 1, OFF event = 0  |
+    | 33-62 | unused (31 bits)                       |
+    | 0-32  | dt (32 bits)                           |
+
+    To recover the original sensor time, add the delta ``dt`` to the
+	message ``time_base`` field.
+	To recover the best estimate ROS sensor time stamp, add ``dt`` to the
+	header stamp.
+
+For encoding and decoding see the examples in the ``python`` directory and the header files
+in ``include/event_array_msgs``.
 
 ## License
 This package is released under the [Apache-2 license](LICENSE).
