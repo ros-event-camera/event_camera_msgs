@@ -48,6 +48,17 @@ namespace event_array_msgs
       *t = time_base + dt;
       return (static_cast<bool>(packed & ~0x7FFFFFFFFFFFFFFFULL));
     }
+    //
+    // decode time only
+    //
+    static inline uint64_t decode_t(const uint8_t *packed_u8, uint64_t time_base) {
+      const uint64_t &packed = *reinterpret_cast<const uint64_t*>(packed_u8);
+      const uint32_t dt = static_cast<uint32_t>(packed & 0xFFFFFFFFULL);
+      return (time_base + dt);
+    }
+    // for advancing the pointer
+    const size_t bytes_per_event = 8;
+
   } // end of namespace mono
 
   //
@@ -74,6 +85,9 @@ namespace event_array_msgs
       *t = time_base + dt;
       return ((bool)(packed & ~0x7FFFFFFFFFFFFFFFULL));
     }
+    // for advancing the pointer
+    const size_t bytes_per_event = 8;
+
   } // end of namespace mono
 }
 #endif // EVENT_ARRAY_MSGS__DECODE_H_
