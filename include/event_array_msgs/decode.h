@@ -17,6 +17,7 @@
 #define EVENT_ARRAY_MSGS__DECODE_H_
 
 #include <stdint.h>
+#include <stddef.h>
 
 namespace event_array_msgs
 {
