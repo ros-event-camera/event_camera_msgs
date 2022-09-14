@@ -36,6 +36,12 @@ serialization and deserialization.
 	To recover the best estimate ROS sensor time stamp, add ``dt`` to the
 	header stamp.
 
+- ``evt3``: raw Metavision evt3 data as it comes from the SDK.
+    For decoding refer to Prophesee Metavision documents.
+
+	The content of the ``time_base`` field is undefined. Recovery of
+	sensor time requires decoding the data packets.
+	
 For encoding and decoding see the examples in the ``python`` directory and the header files
 in ``include/event_array_msgs``.
 
