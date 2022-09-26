@@ -1,12 +1,25 @@
 # ROS package with array messages for event based cameras
 
-This package has definitions for messages created by event based vision
+This package has definitions for ROS / ROS2 messages created by event based vision
 sensors. The events are kept in a compact binary format to avoid slow
-serialization and deserialization.
+serialization and deserialization. They can be decoded with the help
+of the
+[event_array_codecs](https://github.com/berndpfrommer/event_array_codecs)
+package, visualized with the
+[event_array_viewer](https://github.com/berndpfrommer/event_array_viewer)
+and converted to other message formats using
+[event_array_tools](https://github.com/berndpfrommer/event_array_tools).
+
 
 ## Encoding schemes
 
-- ``mono``: messages from monochrome cameras such as the DVS and
+- ``evt3``: raw Metavision evt3 data as it comes from the SDK.
+    For decoding refer to Prophesee Metavision documents.
+
+	The content of the ``time_base`` field is undefined. Recovery of
+	sensor time requires decoding the data packets.
+
+- ``mono`` (deprecated): messages from monochrome cameras such as the DVS and
 	Prophesee Metavision cameras with ON and OFF events on
 	Encodes on 64 bit boundaries as follows:
 
@@ -22,7 +35,7 @@ serialization and deserialization.
 	To recover the best estimate ROS sensor time stamp, add ``dt`` to the
 	header stamp.
 
-- ``trigger``: external trigger messages from e.g. the
+- ``trigger`` (deprecated): external trigger messages from e.g. the
     Prophesee Metavision cameras.
 
     | bits  | interpretation                         |
@@ -36,14 +49,11 @@ serialization and deserialization.
 	To recover the best estimate ROS sensor time stamp, add ``dt`` to the
 	header stamp.
 
-- ``evt3``: raw Metavision evt3 data as it comes from the SDK.
-    For decoding refer to Prophesee Metavision documents.
+For encoding and decoding look at the sources in
+[event_array_codecs](https://github.com/berndpfrommer/event_array_codecs)
+and 
+[event_array_tools](https://github.com/berndpfrommer/event_array_tools).
 
-	The content of the ``time_base`` field is undefined. Recovery of
-	sensor time requires decoding the data packets.
-	
-For encoding and decoding see the examples in the ``python`` directory and the header files
-in ``include/event_array_msgs``.
 
 ## License
 This package is released under the [Apache-2 license](LICENSE).

@@ -22,11 +22,7 @@ add_message_files(DIRECTORY
 
 generate_messages(DEPENDENCIES std_msgs)
 
-include_directories(include ${catkin_INCLUDE_DIRS})
+include_directories(${catkin_INCLUDE_DIRS})
 
-catkin_package(INCLUDE_DIRS include
+catkin_package(
   CATKIN_DEPENDS message_runtime std_msgs)
-
-
-install(DIRECTORY include/${PROJECT_NAME}/
-        DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION})
