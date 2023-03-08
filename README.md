@@ -10,6 +10,9 @@ package, visualized with the
 and converted to other message formats using
 [event_array_tools](https://github.com/berndpfrommer/event_array_tools).
 
+Use the
+[event_array_py](https://github.com/berndpfrommer/event_array_py)
+package for convenient and fast loading of events in python.
 
 ## Encoding schemes
 
