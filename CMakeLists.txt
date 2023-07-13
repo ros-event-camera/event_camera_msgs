@@ -14,7 +14,7 @@
 # limitations under the License.
 
 cmake_minimum_required(VERSION 3.5)
-project(event_array_msgs)
+project(event_camera_msgs)
 
 if(DEFINED ENV{ROS_VERSION})
   if($ENV{ROS_VERSION} EQUAL "2")

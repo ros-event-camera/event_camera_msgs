@@ -20,7 +20,7 @@ find_package(rosidl_default_generators REQUIRED)
 find_package(std_msgs REQUIRED)
 
 rosidl_generate_interfaces(${PROJECT_NAME}
-  msg_ros2/EventArray.msg
+  msg_ros2/EventPacket.msg
   DEPENDENCIES builtin_interfaces std_msgs
   ADD_LINTER_TESTS)
 

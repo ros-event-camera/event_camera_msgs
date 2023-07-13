@@ -18,7 +18,7 @@ find_package(catkin REQUIRED
 add_message_files(DIRECTORY
   msg_ros1
   FILES
-  EventArray.msg)
+  EventPacket.msg)
 
 generate_messages(DEPENDENCIES std_msgs)
 

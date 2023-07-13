@@ -1,6 +1,6 @@
-# This message contains an array of events
+# This message contains a packet of camera events
 
-std_msgs/Header header     # standard ROS header
+Header header     # standard ROS header
 uint32 height     # image height
 uint32 width      # image width
 
