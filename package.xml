@@ -20,6 +20,7 @@
 
   <!-- common dependencies -->
   <depend>std_msgs</depend>
+  <buildtool_depend>ros_environment</buildtool_depend> <!-- ROS_VERSION + ROS_DISTRO -->
 
   <member_of_group condition="$ROS_VERSION == 2">rosidl_interface_packages</member_of_group>
 
