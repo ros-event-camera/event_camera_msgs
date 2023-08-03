@@ -2,6 +2,12 @@
 Changelog for package event_camera_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* add dependency on rosidl_default_generators and runtime
+* added dependency on ros_environment
+* Contributors: Bernd Pfrommer
+
 1.1.2 (2023-07-29)
 ------------------
 
