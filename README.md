@@ -5,7 +5,7 @@ sensors. The events are kept in a compact binary format to avoid slow
 serialization and deserialization during recording.
 
 Event camera messages can be  visualized with the
-[event_camera_viewer](https://github.com/ros-event-camera/event_camera_viewer)
+[event_camera_renderer](https://github.com/ros-event-camera/event_camera_renderer)
 and converted to other message formats using
 [event_camera_tools](https://github.com/ros-event-camera/event_camera_tools).
 
