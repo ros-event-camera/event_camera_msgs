@@ -2,22 +2,31 @@
 Changelog for package event_camera_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1.0.4 (2023-08-03)
-------------------
+Forthcoming
+-----------
+* remove linter tests (bombout on galactic)
+* Contributors: Bernd Pfrommer
+
+1.0.4 (2023-08-03 11:56)
+------------------------
+* updated changelog
 * fix cmake bug preventing bombout when ROS_VERSION was not set
 * Contributors: Bernd Pfrommer
 
-1.0.3 (2023-08-03)
-------------------
+1.0.3 (2023-08-03 09:41)
+------------------------
+* updated changelog
 * add dependency on rosidl_default_generators and runtime
 * added dependency on ros_environment
 * Contributors: Bernd Pfrommer
 
-1.0.2 (2023-07-29)
-------------------
+1.0.2 (2023-07-29 08:07)
+------------------------
+* added changelog file
+* Contributors: Bernd Pfrommer
 
-1.0.1 (2023-07-29)
-------------------
+1.0.1 (2023-07-29 07:54)
+------------------------
 * bumped package version to match tag version
 * Contributors: Bernd Pfrommer
 
