@@ -2,8 +2,8 @@
 Changelog for package event_camera_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+1.1.5 (2023-11-09)
+------------------
 * remove linter tests (bombout on galactic)
 * fix cmake bug preventing bombout when ROS_VERSION was not set
 * Contributors: Bernd Pfrommer
