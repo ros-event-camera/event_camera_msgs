@@ -2,7 +2,7 @@
 Changelog for package event_camera_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+1.2.5 (2023-11-09)
+------------------
 * initial release
 * Contributors: Bernd Pfrommer
