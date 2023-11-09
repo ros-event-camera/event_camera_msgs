@@ -2,8 +2,8 @@
 Changelog for package event_camera_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+1.0.5 (2023-11-09)
+------------------
 * remove linter tests (bombout on galactic)
 * Contributors: Bernd Pfrommer
 
