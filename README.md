@@ -21,8 +21,7 @@ package provides a module for fast and convenient loading of events in python.
 ### EventPacket
 
 The EventPacket message contains a packet (array) of events in binary
-format. Several different encoding formats are supported, but use of
-the older, deprecated ones is strongly discouraged.
+format.
 
 Description of the encodings:
 
@@ -36,8 +35,9 @@ Description of the encodings:
 	[event_camera_codecs](https://github.com/ros-event-camera/event_camera_codecs).
 
 
-- ``mono`` (deprecated): messages from monochrome cameras such as the DVS and
-	Prophesee Metavision cameras. Encodes on 64 bit boundaries as follows:
+- ``mono``: messages from monochrome cameras using the
+   [libcaer driver](https://github.com/ros-event-camera/libcaer_driver)
+   (Davis, dvXplorer etc). Encodes on 64 bit boundaries as follows:
 
     | bits  | interpretation                         |
     |-------|----------------------------------------|
@@ -47,9 +47,9 @@ Description of the encodings:
     | 0-32  | dt (32 bits)                           |
 
     To recover the original sensor time, add the delta ``dt`` to the
-	message ``time_base`` field.
-	To recover the best estimate ROS sensor time stamp add ``dt`` to the
-	header stamp.
+	message ``time_base`` field. Both ``dt`` and ``time_base`` are
+    in nanoseconds.	To recover the best estimate ROS sensor time
+    stamp add ``dt`` to the ROS header stamp.
 
 - ``trigger`` (deprecated): external trigger messages from e.g. the
     Prophesee Metavision cameras.
@@ -61,7 +61,7 @@ Description of the encodings:
     | 0-32  | dt (32 bits)                           |
 
     To recover the original sensor time add the delta ``dt`` to the
-	message ``time_base`` field.
+	message ``time_base`` field (in nanoseconds).
 	To recover the best estimate ROS sensor time stamp add ``dt`` to the
 	header stamp.
 
