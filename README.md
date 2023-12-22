@@ -34,10 +34,17 @@ Description of the encodings:
 	time stamps see documentation in
 	[event_camera_codecs](https://github.com/ros-event-camera/event_camera_codecs).
 
+- ``libcaer_cmp``: compressed libcaer format. The compression is similar
+    to ``evt3`` but the ``time_base`` field is used to recover absolute
+    sensor time. The decompression is best understood by looking at the
+    source code [here](https://github.com/ros-event-camera/event_camera_codecs/blob/2b1738e45a1f6321a9ede640e052842e7beac43a/include/event_camera_codecs/libcaer_cmp_decoder.h).
 
-- ``mono``: messages from monochrome cameras using the
-   [libcaer driver](https://github.com/ros-event-camera/libcaer_driver)
-   (Davis, dvXplorer etc). Encodes on 64 bit boundaries as follows:
+- ``libcaer``: uncompressed messages in the format that libcaer
+    presents it to its upper layers. The encoding takes 64bits per event and is
+    similar to the ``mono`` encoding described below. This message format is generally inferior to ``libcaer_cmp``.
+
+- ``mono``: (deprecated) event messages from the Prophesee cameras.
+    Encodes on 64 bit boundaries as follows:
 
     | bits  | interpretation                         |
     |-------|----------------------------------------|
