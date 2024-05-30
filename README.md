@@ -21,8 +21,7 @@ package provides a module for fast and convenient loading of events in python.
 ### EventPacket
 
 The EventPacket message contains a packet (array) of events in binary
-format. Several different encoding formats are supported, but use of
-the older, deprecated ones is strongly discouraged.
+format.
 
 Description of the encodings:
 
@@ -35,9 +34,17 @@ Description of the encodings:
 	time stamps see documentation in
 	[event_camera_codecs](https://github.com/ros-event-camera/event_camera_codecs).
 
+- ``libcaer_cmp``: compressed libcaer format. The compression is similar
+    to ``evt3`` but the ``time_base`` field is used to recover absolute
+    sensor time. The decompression is best understood by looking at the
+    source code [here](https://github.com/ros-event-camera/event_camera_codecs/blob/2b1738e45a1f6321a9ede640e052842e7beac43a/include/event_camera_codecs/libcaer_cmp_decoder.h).
 
-- ``mono`` (deprecated): messages from monochrome cameras such as the DVS and
-	Prophesee Metavision cameras. Encodes on 64 bit boundaries as follows:
+- ``libcaer``: uncompressed messages in the format that libcaer
+    presents it to its upper layers. The encoding takes 64bits per event and is
+    similar to the ``mono`` encoding described below. This message format is generally inferior to ``libcaer_cmp``.
+
+- ``mono``: (deprecated) event messages from the Prophesee cameras.
+    Encodes on 64 bit boundaries as follows:
 
     | bits  | interpretation                         |
     |-------|----------------------------------------|
@@ -47,9 +54,9 @@ Description of the encodings:
     | 0-32  | dt (32 bits)                           |
 
     To recover the original sensor time, add the delta ``dt`` to the
-	message ``time_base`` field.
-	To recover the best estimate ROS sensor time stamp add ``dt`` to the
-	header stamp.
+	message ``time_base`` field. Both ``dt`` and ``time_base`` are
+    in nanoseconds.	To recover the best estimate ROS sensor time
+    stamp add ``dt`` to the ROS header stamp.
 
 - ``trigger`` (deprecated): external trigger messages from e.g. the
     Prophesee Metavision cameras.
@@ -61,7 +68,7 @@ Description of the encodings:
     | 0-32  | dt (32 bits)                           |
 
     To recover the original sensor time add the delta ``dt`` to the
-	message ``time_base`` field.
+	message ``time_base`` field (in nanoseconds).
 	To recover the best estimate ROS sensor time stamp add ``dt`` to the
 	header stamp.
 
