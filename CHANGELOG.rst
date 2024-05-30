@@ -2,8 +2,8 @@
 Changelog for package event_camera_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+1.0.6 (2024-05-30)
+------------------
 * bumped cmake required
 * updated documentation
 * Contributors: Bernd Pfrommer
