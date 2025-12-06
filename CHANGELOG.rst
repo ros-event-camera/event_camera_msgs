@@ -2,6 +2,11 @@
 Changelog for package event_camera_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* fixed license string in package.xml
+* Contributors: Bernd Pfrommer
+
 2.0.0 (2025-05-22)
 ------------------
 
