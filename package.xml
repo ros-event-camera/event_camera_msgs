@@ -5,7 +5,7 @@
   <version>1.1.2</version>
   <description>messages for event based cameras</description>
   <maintainer email="bernd.pfrommer@gmail.com">Bernd Pfrommer</maintainer>
-  <license>Apache-2</license>
+  <license>Apache License 2.0</license>
 
   <!--  ROS1 dependencies -->
   <buildtool_depend condition="$ROS_VERSION == 1">catkin</buildtool_depend>
